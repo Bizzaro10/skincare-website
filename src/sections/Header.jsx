@@ -1,6 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+import  Lenis  from "lenis";
+
+const lenis = new Lenis();
+lenis.on("scroll", (e) => {
+  console.log(e);
+});
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
 const Header = () => {
     // Create refs for animated elements
     const logoRef = useRef(null);
